@@ -13,7 +13,7 @@ const EmailSenderService = {
         // setup email data with unicode symbols
         let mailOptions = {
             from: 'Devcore site contact', // sender address
-            to: 'yarielinfante@gmail.com, vberihuete@gmail.com, snailin.inoa@gmail.com, garcia.m.wilson@gmail.com', // list of receivers
+            to: 'yarielinfante@gmail.com', // list of receivers
             subject: 'Client interest', // Subject line
             text: emailContent, // plain text body
         };
@@ -27,8 +27,7 @@ const EmailSenderService = {
             // Preview only available when sending through an Ethereal account
             console.log('Preview URL: %s', nodemailer.getTestMessageUrl(info));
 
-            // Message sent: <b658f8ca-6296-ccf4-8306-87d57a0b4321@example.com>
-            // Preview URL: https://ethereal.email/message/WaQKMgKddxQDoou...
+        
         });
     },
 
@@ -46,7 +45,7 @@ const EmailSenderService = {
             }
         };
 
-        axios.post('https://dev-core-talk.firebaseio.com/messages.json', messageNotification)
+        axios.post('https://messages.json', messageNotification)
             .then(res => {
 
                 console.log('notificatio sent : ' + res.statusText);
